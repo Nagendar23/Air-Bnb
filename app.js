@@ -52,11 +52,6 @@ const sessionOptions = {
   }
 };
 
-// Test route
-app.get('/', (req, res) => {
-  res.send('The port is working');
-});
-
 // Session & Flash
 app.use(session(sessionOptions));
 app.use(flash());
