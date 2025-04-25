@@ -130,6 +130,12 @@ h1 {
     background-color: #0056b3;
 }
 
+.form-control[type="search"] {
+    width: 300px;
+    min-width: 200px;
+    max-width: 400px;
+}
+
 /* Card Grid Layout */
 .card-grid {
     display: grid;

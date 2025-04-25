@@ -1,9 +1,12 @@
 <style>
   .btn-search{
-    background-color: #fe424d ;
+    background-color: #fe424d;
     color: white;
     border-radius: 25px;
-    padding:0 1rem 0 1rem;
+    padding: 0 0.7rem 0 0.7rem;
+    font-size: 0.95rem;         
+    height: 36px;               
+    line-height: 1.2;
   }
   .btn-search:hover{
     background-color: #fe424d ;
@@ -12,6 +15,11 @@
   .btn-search i{
     display: inline;
     margin-right: 0.5rem;
+  }
+  .form-control[type="search"] {
+    width: 300px;
+    min-width: 200px;
+    max-width: 400px;
   }
 </style>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
@@ -26,8 +34,8 @@
         </div>
 
         <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search destinations">
+          <form class="d-flex" role="search" action="/listings" method="GET">
+            <input class="form-control me-2" type="search" name="q" placeholder="Search destinations">
             <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
           </form>
         </div>

@@ -12,7 +12,22 @@ const express = require('express');
 
   // /route
   router.route('/')
-  .get( wrapAsync(listingController.index))
+  .get( wrapAsync(async (req, res) => {
+    const { q } = req.query;
+    let allListings;
+    if (q) {
+      allListings = await Listing.find({
+        $or: [
+          { location: { $regex: q, $options: 'i' } },
+          { country: { $regex: q, $options: 'i' } },
+          { title: { $regex: q, $options: 'i' } }
+        ]
+      });
+    } else {
+      allListings = await Listing.find({});
+    }
+    res.render('listings/index', { allListings });
+  }))
   
   .post(isLoggedIn,  upload.single('listing[image]'), wrapAsync(listingController.createListing));
 
